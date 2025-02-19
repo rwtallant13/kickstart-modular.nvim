@@ -1,5 +1,11 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+--
+-- Personal Keymaps
+--
+vim.keymap.set('n', ';', ':', { desc = 'CMD enter command mode' })
+vim.keymap.set('v', ';', '<Esc>')
+vim.keymap.set('n', 'fr', ':%s//g<left><left>', { desc = 'Find and Replace' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
