@@ -55,6 +55,7 @@ return {
       require('noice').setup(opts)
     end,
   },
+
   {
     'catppuccin/nvim',
     lazy = true,
@@ -100,6 +101,7 @@ return {
       },
     },
   },
+
   {
     'folke/snacks.nvim',
     opts = {
