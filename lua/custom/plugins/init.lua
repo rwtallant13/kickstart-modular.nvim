@@ -57,7 +57,44 @@ return {
   },
 
   {
+    'gbprod/yanky.nvim',
+    event = 'VeryLazy',
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      vim.keymap.set({ 'n', 'x' }, 'p', '<Plug>(YankyPutAfter)'),
+      vim.keymap.set({ 'n', 'x' }, 'P', '<Plug>(YankyPutBefore)'),
+      vim.keymap.set({ 'n', 'x' }, 'gp', '<Plug>(YankyGPutAfter)'),
+      vim.keymap.set({ 'n', 'x' }, 'gP', '<Plug>(YankyGPutBefore)'),
+      vim.keymap.set('n', '<c-p>', '<Plug>(YankyPreviousEntry)'),
+      vim.keymap.set('n', '<c-n>', '<Plug>(YankyNextEntry)'),
+    },
+  },
+
+  {
+    'akinsho/bufferline.nvim',
+    event = 'VeryLazy',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    keys = {
+      { '<leader>bp', '<Cmd>BufferLineTogglePin<CR>', desc = 'Toggle Pin' },
+      { '<leader>bP', '<Cmd>BufferLineGroupClose ungrouped<CR>', desc = 'Delete Non-Pinned Buffers' },
+      { '<leader>br', '<Cmd>BufferLineCloseRight<CR>', desc = 'Delete Buffers to the Right' },
+      { '<leader>bl', '<Cmd>BufferLineCloseLeft<CR>', desc = 'Delete Buffers to the Left' },
+      { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
+      { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
+      { '[b', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
+      { ']b', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
+      { '[B', '<cmd>BufferLineMovePrev<cr>', desc = 'Move buffer prev' },
+      { ']B', '<cmd>BufferLineMoveNext<cr>', desc = 'Move buffer next' },
+    },
+  },
+
+  {
     'echasnovski/mini.move',
+    event = 'VeryLazy',
     version = '*',
     config = function()
       require('mini.move').setup()
@@ -67,6 +104,7 @@ return {
   {
     'catppuccin/nvim',
     name = 'catppuccin',
+    lazy = false,
     priority = 1000,
     init = function()
       -- Load the colorscheme here.
