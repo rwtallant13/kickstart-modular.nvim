@@ -34,6 +34,23 @@ return {
 
       require('mini.move').setup()
 
+      require('mini.jump').setup {
+        mappings = {
+          forward = 'f',
+          backward = 'F',
+          forward_till = 't',
+          backward_till = 'T',
+          repeat_jump = '\\',
+        },
+        delay = {
+          -- Delay between jump and highlighting all possible jumps
+          highlight = 250,
+
+          -- Delay between jump and automatic stop if idle (no jump is done)
+          idle_stop = 3000,
+        },
+      }
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
