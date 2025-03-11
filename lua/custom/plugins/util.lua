@@ -1,7 +1,10 @@
 return {
   {
     'luukvbaal/nnn.nvim',
-    opts = {},
+    opts = {
+      vim.keymap.set({ 'n', 't' }, '<leader>n', '<cmd>NnnExplorer<CR>'),
+      vim.keymap.set({ 'n', 't' }, '<leader>p', '<cmd>NnnPicker<CR>'),
+    },
   },
 
   {
