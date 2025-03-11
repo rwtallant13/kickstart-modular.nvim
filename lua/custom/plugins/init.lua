@@ -57,6 +57,24 @@ return {
   },
 
   {
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' },
+  },
+
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+
+  {
+    'luukvbaal/nnn.nvim',
+    config = function()
+      require('nnn').setup()
+    end,
+  },
+
+  {
     'gbprod/yanky.nvim',
     event = 'VeryLazy',
     opts = {
@@ -65,13 +83,35 @@ return {
       -- refer to the configuration section below
     },
     keys = {
-      vim.keymap.set({ 'n', 'x' }, 'p', '<Plug>(YankyPutAfter)'),
-      vim.keymap.set({ 'n', 'x' }, 'P', '<Plug>(YankyPutBefore)'),
-      vim.keymap.set({ 'n', 'x' }, 'gp', '<Plug>(YankyGPutAfter)'),
-      vim.keymap.set({ 'n', 'x' }, 'gP', '<Plug>(YankyGPutBefore)'),
-      vim.keymap.set('n', '<c-p>', '<Plug>(YankyPreviousEntry)'),
-      vim.keymap.set('n', '<c-n>', '<Plug>(YankyNextEntry)'),
+      { 'n', 'x' },
+      'p',
+      '<Plug>(YankyPutAfter)',
+      { 'n', 'x' },
+      'P',
+      '<Plug>(YankyPutBefore)',
+      { 'n', 'x' },
+      'gp',
+      '<Plug>(YankyGPutAfter)',
+      { 'n', 'x' },
+      'gP',
+      '<Plug>(YankyGPutBefore)',
+      { 'n', '<c-p>' },
+      '<Plug>(YankyPreviousEntry)',
+      { 'n', '<c-n>' },
+      '<Plug>(YankyNextEntry)',
     },
+  },
+
+  {
+    'AckslD/nvim-neoclip.lua',
+    dependencies = {
+      -- you'll need at least one of these
+      { 'nvim-telescope/telescope.nvim' },
+      -- {'ibhagwan/fzf-lua'},
+    },
+    config = function()
+      require('neoclip').setup()
+    end,
   },
 
   {
@@ -93,12 +133,7 @@ return {
   },
 
   {
-    'echasnovski/mini.move',
-    event = 'VeryLazy',
-    version = '*',
-    config = function()
-      require('mini.move').setup()
-    end,
+    'jghauser/mkdir.nvim',
   },
 
   {
