@@ -52,59 +52,15 @@ return {
 
   {
     'catppuccin/nvim',
-    lazy = true,
     name = 'catppuccin',
-    opts = {
-      integrations = {
-        aerial = true,
-        alpha = true,
-        cmp = true,
-        dashboard = true,
-        flash = true,
-        fzf = true,
-        grug_far = true,
-        gitsigns = true,
-        headlines = true,
-        illuminate = true,
-        indent_blankline = { enabled = true },
-        leap = true,
-        lsp_trouble = true,
-        mason = true,
-        markdown = true,
-        mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { 'undercurl' },
-            hints = { 'undercurl' },
-            warnings = { 'undercurl' },
-            information = { 'undercurl' },
-          },
-        },
-        navic = { enabled = true, custom_bg = 'lualine' },
-        neotest = true,
-        neotree = true,
-        noice = true,
-        notify = true,
-        semantic_tokens = true,
-        snacks = true,
-        telescope = true,
-        treesitter = true,
-        treesitter_context = true,
-        which_key = true,
-      },
-    },
-    specs = {
-      {
-        'akinsho/bufferline.nvim',
-        optional = true,
-        opts = function(_, opts)
-          if (vim.g.colors_name or ''):find 'catppuccin' then
-            opts.highlights = require('catppuccin.groups.integrations.bufferline').get()
-          end
-        end,
-      },
-    },
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Load the colorscheme here.
+      vim.cmd.colorscheme 'catppuccin'
+
+      vim.cmd.hi 'Comment gui=none'
+    end,
   },
 
   {
@@ -137,18 +93,18 @@ return {
         long_message_to_split = true,
       },
     },
-    -- stylua: ignore
-    keys = {
-      { "<leader>sN", "", desc = "+noice"},
-      { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
-      { "<leader>sNl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
-      { "<leader>sNh", function() require("noice").cmd("history") end, desc = "Noice History" },
-      { "<leader>sNa", function() require("noice").cmd("all") end, desc = "Noice All" },
-      { "<leader>sNd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
-      { "<leader>sNt", function() require("noice").cmd("pick") end, desc = "Noice Picker (Telescope/FzfLua)" },
-      { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll Forward", mode = {"i", "n", "s"} },
-      { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll Backward", mode = {"i", "n", "s"}},
-    },
+  -- stylua: ignore
+  keys = {
+    { "<leader>sN", "", desc = "+noice"},
+    { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
+    { "<leader>sNl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
+    { "<leader>sNh", function() require("noice").cmd("history") end, desc = "Noice History" },
+    { "<leader>sNa", function() require("noice").cmd("all") end, desc = "Noice All" },
+    { "<leader>sNd", function() require("noice").cmd("dismiss") end, desc = "Dismiss All" },
+    { "<leader>sNt", function() require("noice").cmd("pick") end, desc = "Noice Picker (Telescope/FzfLua)" },
+    { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll Forward", mode = {"i", "n", "s"} },
+    { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll Backward", mode = {"i", "n", "s"}},
+  },
     config = function(_, opts)
       if vim.o.filetype == 'lazy' then
         vim.cmd [[messages clear]]
