@@ -7,8 +7,6 @@ vim.keymap.set('n', '<leader>r', ':%s@@@<left><left>', { desc = 'Find and Replac
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'Move up page and center' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'Move down page and center' })
 
-vim.keymap.set('c', 'w!!', '<esc>:w !sudo tee > /dev/null %<CR>', { silent = true })
-
 vim.keymap.set('n', '<leader>y', '<cmd>Telescope neoclip<CR>', { desc = 'neoclip yank menu' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
