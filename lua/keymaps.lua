@@ -3,7 +3,7 @@
 --
 vim.keymap.set('n', ';', ':', { desc = 'CMD enter command mode' })
 vim.keymap.set('v', ';', '<Esc>')
-vim.keymap.set('n', '<leader>r', ':%s@@@<left><left>', { desc = 'Find and Replace' })
+vim.keymap.set('n', '<leader>fr', ':%s@@@<left><left>', { desc = 'Find and Replace' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, desc = 'Move up page and center' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, desc = 'Move down page and center' })
 
